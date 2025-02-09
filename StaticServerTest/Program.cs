@@ -72,7 +72,7 @@ class Program
         // Ожидаем завершения всех задач
         Task.WaitAll(tasks);
 
-        Console.WriteLine("Final Count: " + Server.GetCount());
+        Console.WriteLine("Окончательный подсчет: " + Server.GetCount());
     }
 
     // Метод для моделируемого клиента-писателя
@@ -84,7 +84,7 @@ class Program
             Thread.Sleep(random.Next(1000)); // Ждем случайное количество времени
             int value = random.Next(-50, 51); // Генерируем случайное число от -50 до 50
             Server.AddToCount(value);
-            Console.WriteLine($"Writer {writerId}: Added {value}, Current Count: {Server.GetCount()}");
+            Console.WriteLine($"Писатель {writerId}: Добавлен {value}, Текущий счетчик: {Server.GetCount()}");
         }
     }
 
@@ -95,7 +95,7 @@ class Program
         {
             Thread.Sleep(500); // Ждем полсекунды
             int currentCount = Server.GetCount();
-            Console.WriteLine($"Reader {readerId}: Current Count: {currentCount}");
+            Console.WriteLine($"Читатель {readerId}: Текущий счетчик: {currentCount}");
         }
     }
 }
